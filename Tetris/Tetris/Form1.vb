@@ -1,42 +1,194 @@
-﻿Public Class Form1
+﻿Imports System.Globalization
+
+Public Class Form1
+    Dim movements As New Dictionary(Of String, Collection)
+    Dim tracks As New Dictionary(Of String, Integer)
+    Dim score As Integer
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        follow(Enemy, Avitar, 10)
-        follow(Enemy2, Avitar, 5)
+        follow(Enemy1, Avitar, 5, 0)
+        follow(Enemy2, Avitar, 5, 0)
+        follow(Enemy3, Avitar, 5, 0)
+        follow(Enemy4, Avitar, 5, 0)
+        follow(Enemy5, Avitar, 5, 0)
     End Sub
-    Sub follow(e As PictureBox, a As PictureBox, s As Integer)
-        If Enemy.Location.Y > a.Location.Y Then
-            Move(e, 0, -s)
+    Sub PaceX(e As PictureBox, p As PictureBox, speed As Integer)
+        Dim dir As Integer
+        dir = e.Tag
+
+        move(e, dir * speed, 0)
+
+        If e.Location.X > p.Location.X + p.Width - 5 Then
+            e.Tag = dir * -1
+        End If
+        If e.Location.X < p.Location.X Then
+            e.Tag = dir * -1
+        End If
+    End Sub
+
+    Sub PaceY(e As PictureBox, p As PictureBox, speed As Integer)
+        Dim dir As String
+        dir = e.Tag
+
+        move(e, 0, dir * speed)
+
+        If e.Location.Y < p.Location.Y Then
+            e.Tag = dir * -1
+        End If
+        If e.Location.Y > p.Location.Y + p.Height / 2 Then
+            e.Tag = dir * -1
+        End If
+    End Sub
+
+    Sub follow(e As PictureBox, a As PictureBox, speedx As Integer, speedy As Integer)
+        If e.Location.Y > a.Location.Y Then
+            move(e, 0, -speedy)
         Else
-            Move(e, 0, s)
+            move(e, 0, speedy)
         End If
         If e.Location.X > a.Location.X Then
-            Move(e, -s, 0)
+            move(e, -speedx, 0)
         Else
-            Move(e, s, 0)
+            move(e, speedx, 0)
         End If
     End Sub
 
     Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
         If e.KeyCode = Keys.Left Or e.KeyCode = Keys.A Then
-            Move(Avitar, -5, 0)
+            move(Avitar, -5, 0)
         End If
         If e.KeyCode = Keys.Right Or e.KeyCode = Keys.D Then
-            Move(Avitar, 5, 0)
+            move(Avitar, 5, 0)
         End If
         If e.KeyCode = Keys.Down Or e.KeyCode = Keys.S Then
-            Move(Avitar, 0, 5)
+            move(Avitar, 0, 5)
         End If
-        If e.KeyCode = Keys.Space Or e.KeyCode = Keys.Space Then
-            Avitar.Image.RotateFlip(RotateFlipType.Rotate90FlipNone)
+        If e.KeyCode = Keys.Space Then
+            jumpTimer.Enabled = True
+            Avitar.Tag = 3
         End If
-        If e.KeyCode = Keys.Up Or e.KeyCode = Keys.W Then
-            Move(Avitar, 0, -5)
+        If e.KeyCode = Keys.P Then
+            Avitar.Location = New Point(17, 122)
+            BackColor = Color.White
+            BigWin.Visible = False
+            Loser1.Visible = False
+            Loser2.Enabled = False
+            ScoreLable.Text = score - score
+            Timer2.Enabled = False
+            If Me.BackColor = Color.Red Then
+                Me.BackColor = Color.White
+            End If
         End If
         Avitar.Refresh()
     End Sub
-    Sub Move(p As PictureBox, xdir As Integer, ydir As Integer)
+    Sub move(p As PictureBox, xdir As Integer, ydir As Integer)
         p.Location += New Point(xdir, ydir)
 
+        If IntersectsWith(p, "wall") Then
+            p.Location -= New Point(xdir, ydir)
+        End If
+        Dim z As PictureBox
+        If IntersectsWith(p, "Coin", z) Then
+            z.Visible = False
+            Me.BackColor = Color.Green
+            BigWin.Text = "Big Win"
+        End If
+        If IntersectsWith(p, "Enemy", z) Then
+            Loser1.Visible = True
+            Avitar.Location = New Point(17, 122)
+            Loser2.Enabled = True
+        End If
+        If Not movements.ContainsKey(p.Name) Then
+            movements.Add(p.Name, New Collection)
+        End If
+        movements(p.Name).Add(p.Location)
+
+    End Sub
+
+    Function endingWith(s As String) As Collection
+        Dim coll As New Collection
+        For Each o In Controls
+            Dim obj As PictureBox
+            obj = TryCast(o, PictureBox)
+            If Not obj Is Nothing Then
+                If UCase(obj.Name).EndsWith(UCase(s)) Then
+                    coll.Add(obj)
+                End If
+            End If
+        Next
+        Return coll
+    End Function
+    Function IntersectsWith(p As PictureBox, tag As String) As Boolean
+        Return IntersectsWith(p, tag, Nothing)
+    End Function
+    Function IntersectsWith(p As PictureBox, tag As String, Optional ByRef other As PictureBox = Nothing) As Boolean
+        For Each o In Controls
+            Dim obj As PictureBox
+            obj = TryCast(o, PictureBox)
+            If Not obj Is Nothing AndAlso obj.Visible Then
+                If p.Bounds.IntersectsWith(obj.Bounds) And (UCase(obj.Tag) = UCase(tag) Or
+                    UCase(obj.Name).EndsWith(UCase(tag))) Then
+                    other = obj
+                    Return True
+                End If
+            End If
+        Next
+        Return False
+    End Function
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+        score += 1
+        ScoreLable.Text = score
+
+        If score - score Then
+
+            score = 0
+            score += 1
+        End If
+    End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+    Private Sub jumpTimer_Tick(sender As Object, e As EventArgs) Handles jumpTimer.Tick
+        Dim t As Integer
+        t = Avitar.Tag
+        If t > 0 Then move(Avitar, 0, -20)
+        If t < 0 Then move(Avitar, 0, 20)
+        If t = -3 Then jumpTimer.Enabled = False
+
+        Avitar.Tag = t - 1
+
+    End Sub
+    Sub Track(e As PictureBox, a As PictureBox)
+        If Not tracks.ContainsKey(e.Name & a.Name) Then
+            tracks.Add(e.Name & a.Name, 1)
+        Else
+            Dim idx As Integer
+            idx = tracks(e.Name & a.Name)
+            If movements.ContainsKey(a.Name) AndAlso idx < movements(a.Name).Count Then
+                e.Location = movements(a.Name).Item(idx)
+                tracks(e.Name & a.Name) = idx + 1
+            End If
+
+        End If
+    End Sub
+
+    Private Sub Loser2_Tick(sender As Object, e As EventArgs) Handles Loser2.Tick
+        Loser1.Text = "You Lost"
+        Me.BackColor = Color.Red
+
+    End Sub
+
+    Private Sub Coin_Click(sender As Object, e As EventArgs) Handles Coin.Click
+
+    End Sub
+
+
+
+    Private Sub p(sender As Object, e As EventArgs)
+        Avitar.Location = New Point(17, 122)
+        BackColor = Color.White
+        BigWin.Visible = False
+        Loser1.Visible = False
     End Sub
 
 
