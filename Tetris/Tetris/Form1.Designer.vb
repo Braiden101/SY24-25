@@ -24,7 +24,6 @@ Partial Class Form1
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Loser2 = New Timer(components)
         Avitar = New PictureBox()
         Timer1 = New Timer(components)
         Enemy1 = New PictureBox()
@@ -63,16 +62,12 @@ Partial Class Form1
         CType(PictureBox14, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
-        ' Loser2
-        ' 
-        Loser2.Interval = 1000
-        ' 
         ' Avitar
         ' 
         Avitar.Image = CType(resources.GetObject("Avitar.Image"), Image)
-        Avitar.Location = New Point(29, 122)
+        Avitar.Location = New Point(526, 679)
         Avitar.Name = "Avitar"
-        Avitar.Size = New Size(58, 66)
+        Avitar.Size = New Size(58, 86)
         Avitar.SizeMode = PictureBoxSizeMode.Zoom
         Avitar.TabIndex = 0
         Avitar.TabStop = False
@@ -85,7 +80,7 @@ Partial Class Form1
         ' Enemy1
         ' 
         Enemy1.Image = CType(resources.GetObject("Enemy1.Image"), Image)
-        Enemy1.Location = New Point(345, 163)
+        Enemy1.Location = New Point(318, 163)
         Enemy1.Name = "Enemy1"
         Enemy1.Size = New Size(48, 25)
         Enemy1.SizeMode = PictureBoxSizeMode.Zoom
@@ -331,6 +326,5 @@ Partial Class Form1
     Friend WithEvents PictureBox13 As PictureBox
     Friend WithEvents PictureBox14 As PictureBox
     Friend WithEvents Loser1 As Label
-    Friend WithEvents Loser2 As Timer
 
 End Class

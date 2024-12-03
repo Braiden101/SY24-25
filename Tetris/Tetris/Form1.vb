@@ -66,19 +66,7 @@ Public Class Form1
             jumpTimer.Enabled = True
             Avitar.Tag = 3
         End If
-        If e.KeyCode = Keys.P Then
-            Avitar.Location = New Point(17, 122)
-            BackColor = Color.White
-            BigWin.Visible = False
-            Loser1.Visible = False
-            Loser2.Enabled = False
-            ScoreLable.Text = score - score
-            Timer2.Enabled = False
-            If Me.BackColor = Color.Red Then
-                Me.BackColor = Color.White
-            End If
-        End If
-        Avitar.Refresh()
+
     End Sub
     Sub move(p As PictureBox, xdir As Integer, ydir As Integer)
         p.Location += New Point(xdir, ydir)
@@ -93,9 +81,8 @@ Public Class Form1
             BigWin.Text = "Big Win"
         End If
         If IntersectsWith(p, "Enemy", z) Then
-            Loser1.Visible = True
-            Avitar.Location = New Point(17, 122)
-            Loser2.Enabled = True
+
+
         End If
         If Not movements.ContainsKey(p.Name) Then
             movements.Add(p.Name, New Collection)
@@ -145,9 +132,7 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-    End Sub
     Private Sub jumpTimer_Tick(sender As Object, e As EventArgs) Handles jumpTimer.Tick
         Dim t As Integer
         t = Avitar.Tag
@@ -172,24 +157,10 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub Loser2_Tick(sender As Object, e As EventArgs) Handles Loser2.Tick
-        Loser1.Text = "You Lost"
-        Me.BackColor = Color.Red
-
-    End Sub
-
-    Private Sub Coin_Click(sender As Object, e As EventArgs) Handles Coin.Click
-
-    End Sub
 
 
 
-    Private Sub p(sender As Object, e As EventArgs)
-        Avitar.Location = New Point(17, 122)
-        BackColor = Color.White
-        BigWin.Visible = False
-        Loser1.Visible = False
-    End Sub
+
 
 
 End Class
