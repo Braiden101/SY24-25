@@ -7,18 +7,31 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Image x:Name="CESSNA" HorizontalAlignment="Left" Height="158" Margin="33,19,0,0" VerticalAlignment="Top" Width="199" Source="/Cessna 172.jpg" RenderTransformOrigin="0.5,0.5">
+        <Image x:Name="CESSNA" HorizontalAlignment="Left" Height="158" Margin="574,34,0,0" VerticalAlignment="Top" Width="199" Source="/Cessna 172.jpg" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="-1.549"/>
+                    <RotateTransform Angle="0.471"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="296,55,0,0" VerticalAlignment="Top" Height="75" Width="104" Click="Button_Click"/>
-        <Image x:Name="PIPER" HorizontalAlignment="Left" Height="100" Margin="463,169,0,0" VerticalAlignment="Top" Width="100" Source="/Piper 140.jpg"/>
+        <Button x:Name="Button1" Content="B17" HorizontalAlignment="Left" Margin="309,55,0,0" VerticalAlignment="Top" Height="31" Width="91" Click="Button_Click"/>
+        <Image x:Name="PIPER" HorizontalAlignment="Left" Height="126" Margin="565,146,0,0" VerticalAlignment="Top" Width="237" Source="/Piper 140.jpg"/>
+        <Label x:Name="Label1" Content="Label" HorizontalAlignment="Left" Margin="42,200,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="184" Width="327">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.518"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Image x:Name="B17" HorizontalAlignment="Left" Height="111" Margin="565,277,0,0" VerticalAlignment="Top" Width="240" Source="/B17.jpg"/>
+        <Button x:Name="Button2" Content="Piper" HorizontalAlignment="Left" Margin="34,55,0,0" VerticalAlignment="Top" Height="26" Width="116"/>
+        <Button x:Name="Button3" Content="Cessna" HorizontalAlignment="Left" Height="26" Margin="176,55,0,0" VerticalAlignment="Top" Width="96"/>
 
     </Grid>
 </Window>
