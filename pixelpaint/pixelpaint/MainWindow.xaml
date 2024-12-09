@@ -6,15 +6,15 @@
         xmlns:local="clr-namespace:pixelpaint"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Rectangle x:Name="Fill1" HorizontalAlignment="Left" Height="50" Margin="628,39,0,0" Stroke="Black" VerticalAlignment="Top" Width="50" Fill="Red" RenderTransformOrigin="1.098,0.523"/>
-        <Rectangle x:Name="Fill3" HorizontalAlignment="Left" Height="50" Margin="628,114,0,0" Stroke="Black" VerticalAlignment="Top" Width="50" Fill="#FF6DFF08" RenderTransformOrigin="1.098,0.523"/>
-        <Rectangle x:Name="Fill5" HorizontalAlignment="Left" Height="50" Margin="628,189,0,0" Stroke="Black" VerticalAlignment="Top" Width="50" Fill="#FF0047FF" RenderTransformOrigin="1.098,0.523"/>
-        <Rectangle x:Name="Fill7" HorizontalAlignment="Left" Height="50" Margin="628,271,0,0" Stroke="Black" VerticalAlignment="Top" Width="50" Fill="#FFFF02E7" RenderTransformOrigin="1.098,0.523"/>
-        <Rectangle x:Name="FIll2" HorizontalAlignment="Left" Height="50" Margin="708,39,0,0" Stroke="Black" VerticalAlignment="Top" Width="50" Fill="#FFFCFF05" RenderTransformOrigin="1.098,0.523"/>
-        <Rectangle x:Name="Fill4" HorizontalAlignment="Left" Height="50" Margin="708,114,0,0" Stroke="Black" VerticalAlignment="Top" Width="50" Fill="#FF05FFE4" RenderTransformOrigin="1.098,0.523"/>
-        <Rectangle x:Name="Fill6" HorizontalAlignment="Left" Height="50" Margin="708,189,0,0" Stroke="Black" VerticalAlignment="Top" Width="50" Fill="#FF6A02FF" RenderTransformOrigin="1.098,0.523"/>
-        <Rectangle x:Name="Fill8" HorizontalAlignment="Left" Height="50" Margin="708,271,0,0" Stroke="Black" VerticalAlignment="Top" Width="50" Fill="#FF000305" RenderTransformOrigin="1.098,0.523"/>
+    <Grid x:Name="Grid1">
+        <Rectangle x:Name="Fill1" HorizontalAlignment="Left" Height="19" Margin="628,39,0,0" Stroke="Black" VerticalAlignment="Top" Width="27" Fill="Red" RenderTransformOrigin="1.098,0.523"/>
+        <Rectangle x:Name="Fill3" HorizontalAlignment="Left" Height="17" Margin="628,95,0,0" Stroke="Black" VerticalAlignment="Top" Width="27" Fill="#FF6DFF08" RenderTransformOrigin="1.098,0.523"/>
+        <Rectangle x:Name="Fill5" HorizontalAlignment="Left" Height="19" Margin="628,149,0,0" Stroke="Black" VerticalAlignment="Top" Width="27" Fill="#FF0047FF" RenderTransformOrigin="1.098,0.523"/>
+        <Rectangle x:Name="Fill7" HorizontalAlignment="Left" Height="19" Margin="628,212,0,0" Stroke="Black" VerticalAlignment="Top" Width="27" Fill="#FFFF02E7" RenderTransformOrigin="1.098,0.523"/>
+        <Rectangle x:Name="FIll2" HorizontalAlignment="Left" Height="19" Margin="713,39,0,0" Stroke="Black" VerticalAlignment="Top" Width="26" Fill="#FFFCFF05" RenderTransformOrigin="1.098,0.523"/>
+        <Rectangle x:Name="Fill4" HorizontalAlignment="Left" Height="17" Margin="713,95,0,0" Stroke="Black" VerticalAlignment="Top" Width="26" Fill="#FF05FFE4" RenderTransformOrigin="1.098,0.523"/>
+        <Rectangle x:Name="Fill6" HorizontalAlignment="Left" Height="19" Margin="713,149,0,0" Stroke="Black" VerticalAlignment="Top" Width="26" Fill="#FF6A02FF" RenderTransformOrigin="1.098,0.523"/>
+        <Rectangle x:Name="Fill8" HorizontalAlignment="Left" Height="18" Margin="713,210,0,0" Stroke="Black" VerticalAlignment="Top" Width="26" Fill="#FF000305" RenderTransformOrigin="1.098,0.523"/>
         <Rectangle x:Name="p02" HorizontalAlignment="Left" Height="35" Margin="306,29,0,0" Stroke="Black" VerticalAlignment="Top" Width="36" Fill="#FFFD5F5F" RenderTransformOrigin="1.285,3.702"/>
         <Rectangle x:Name="p03" HorizontalAlignment="Left" Height="35" Margin="342,29,0,0" Stroke="Black" VerticalAlignment="Top" Width="36" Fill="#FFFD5F5F" RenderTransformOrigin="1.285,3.702"/>
         <Rectangle x:Name="p04" HorizontalAlignment="Left" Height="35" Margin="378,29,0,0" Stroke="Black" VerticalAlignment="Top" Width="36" Fill="#FFFD5F5F" RenderTransformOrigin="1.285,3.702"/>
@@ -115,6 +115,25 @@
         <Rectangle x:Name="p99" HorizontalAlignment="Left" Height="35" Margin="557,344,0,0" Stroke="Black" VerticalAlignment="Top" Width="36" Fill="#FFFD5F5F" RenderTransformOrigin="1.285,3.702"/>
         <Rectangle x:Name="p90" HorizontalAlignment="Left" Height="35" Margin="234,344,0,0" Stroke="Black" VerticalAlignment="Top" Width="36" Fill="#FFFD5F5F" RenderTransformOrigin="1.285,3.702"/>
         <Rectangle x:Name="p91" HorizontalAlignment="Left" Height="35" Margin="270,344,0,0" Stroke="Black" VerticalAlignment="Top" Width="36" Fill="#FFFD5F5F" RenderTransformOrigin="1.285,3.702"/>
-        <Rectangle x:Name="Brush1" HorizontalAlignment="Left" Height="50" Margin="88,49,0,0" Stroke="Black" VerticalAlignment="Top" Width="50" Fill="#FFFF9300" RenderTransformOrigin="1.098,0.523"/>
+        <Rectangle x:Name="Brush1" HorizontalAlignment="Left" Height="50" Margin="88,49,0,0" Stroke="Black" VerticalAlignment="Top" Width="50" Fill="Red" RenderTransformOrigin="1.098,0.523"/>
+        <CheckBox x:Name="chkdag" Content="Drag" HorizontalAlignment="Left" Margin="88,131,0,0" VerticalAlignment="Top" Cursor="" RenderTransformOrigin="-0.057,0.076"/>
+        <Rectangle x:Name="Fill15" HorizontalAlignment="Left" Height="18" Margin="628,396,0,0" Stroke="Black" VerticalAlignment="Top" Width="27" Fill="#FF8DDC7F" RenderTransformOrigin="1.098,0.523"/>
+        <Rectangle x:Name="Fill2" HorizontalAlignment="Left" Height="17" Margin="628,344,0,0" Stroke="Black" VerticalAlignment="Top" Width="27" Fill="#FFF0F0F0" RenderTransformOrigin="1.098,0.523"/>
+        <Rectangle x:Name="Fill11" HorizontalAlignment="Left" Height="18" Margin="628,301,0,0" Stroke="Black" VerticalAlignment="Top" Width="27" Fill="#FF714BB1" RenderTransformOrigin="1.098,0.523"/>
+        <Rectangle x:Name="Fill9" HorizontalAlignment="Left" Height="19" Margin="628,255,0,0" Stroke="Black" VerticalAlignment="Top" Width="27" Fill="#FF971E1E" RenderTransformOrigin="1.098,0.523"/>
+        <Rectangle x:Name="FIll16" HorizontalAlignment="Left" Height="19" Margin="713,396,0,0" Stroke="Black" VerticalAlignment="Top" Width="26" Fill="#FFD149B5" RenderTransformOrigin="1.098,0.523"/>
+        <Rectangle x:Name="Fill14" HorizontalAlignment="Left" Height="17" Margin="713,344,0,0" Stroke="Black" VerticalAlignment="Top" Width="26" Fill="#FF639795" RenderTransformOrigin="1.098,0.523"/>
+        <Rectangle x:Name="Fill12" HorizontalAlignment="Left" Height="18" Margin="713,301,0,0" Stroke="Black" VerticalAlignment="Top" Width="26" Fill="#FFEB6FD6" RenderTransformOrigin="1.098,0.523"/>
+        <Rectangle x:Name="Fill10" HorizontalAlignment="Left" Height="18" Margin="713,256,0,0" Stroke="Black" VerticalAlignment="Top" Width="26" Fill="#FF4888B2" RenderTransformOrigin="1.098,0.523">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Button x:Name="btnreset" Content="Reset" HorizontalAlignment="Left" Margin="111,204,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
