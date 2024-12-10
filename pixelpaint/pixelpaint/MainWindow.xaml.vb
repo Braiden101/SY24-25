@@ -1,5 +1,5 @@
 ﻿Class MainWindow
-    Private Sub Fill1_MouseDown(sender As Object, e As MouseButtonEventArgs) Handles Fill1.MouseDown, FIll2.MouseDown, Fill3.MouseDown, Fill4.MouseDown, Fill5.MouseDown, Fill6.MouseDown, Fill7.MouseDown, Fill8.MouseDown
+    Private Sub Fill1_MouseDown(sender As Object, e As MouseButtonEventArgs) Handles Fill1.MouseDown, FIll16.MouseDown, Fill3.MouseDown, Fill4.MouseDown, Fill5.MouseDown, Fill6.MouseDown, Fill7.MouseDown, Fill8.MouseDown
         Brush1.Fill = sender.Fill
     End Sub
 
@@ -14,14 +14,53 @@
     End Sub
 
     Private Sub btnreset_Click(sender As Object, e As RoutedEventArgs) Handles btnreset.Click
-        For Each r In Grid1.Children
-            Dim s As String
-            s = r.name
-            If s.StartsWith("p") Then
-                r.fill = New SolidColorBrush(Colors.White)
+        For index = 0 To 99
+            getRect(index).Fill = New SolidColorBrush(Colors.White)
+        Next
+    End Sub
+    Private Function getRect(i As Integer) As Rectangle
+        Dim s As String
+        If i < 10 Then
+            s = "p0" & i
+        Else
+            s = "p" & i
+        End If
+        For Each u In Grid1.Children
+
+            If u.name.Startswith(s) Then
+                Return u
             End If
         Next
+        Return Nothing
+    End Function
 
+    Private Sub btnTop_Click(sender As Object, e As RoutedEventArgs) Handles btnTop.Click
+        For index = 0 To 49
+            getRect(index).Fill = Brush1.Fill
 
+        Next
+    End Sub
+
+    Private Sub btnBottom_Click(sender As Object, e As RoutedEventArgs) Handles btnBottom.Click
+        For index = 49 To 99
+            getRect(index).Fill = Brush1.Fill
+
+        Next
+    End Sub
+
+    Private Sub btnLeft_Click(sender As Object, e As RoutedEventArgs) Handles btnLeft.Click
+        For row = 0 To 9
+            For col = 0 To 4
+                getRect(row * 10 + col).Fill = Brush1.Fill
+            Next
+        Next
+    End Sub
+
+    Private Sub btnRight_Click(sender As Object, e As RoutedEventArgs) Handles btnRight.Click
+        For row = 0 To 9
+            For col = 5 To 9
+                getRect(row * 10 + col).Fill = Brush1.Fill
+            Next
+        Next
     End Sub
 End Class
