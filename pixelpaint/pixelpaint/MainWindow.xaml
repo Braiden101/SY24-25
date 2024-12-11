@@ -834,10 +834,14 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Button x:Name="btnreset" Content="Reset" HorizontalAlignment="Left" Margin="95,167,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnTop" Content="Top" HorizontalAlignment="Left" Margin="91,237,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnBottom" Content="Bottom" HorizontalAlignment="Left" Margin="95,292,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnLeft" Content="Left" HorizontalAlignment="Left" Margin="91,347,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnRight" Content="Right" HorizontalAlignment="Left" Margin="111,396,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnreset" Content="Reset" HorizontalAlignment="Left" Margin="23,158,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnTop" Content="Top" HorizontalAlignment="Left" Margin="80,158,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnBottom" Content="Bottom" HorizontalAlignment="Left" Margin="127,163,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnLeft" Content="Left" HorizontalAlignment="Left" Margin="27,202,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnRight" Content="Right" HorizontalAlignment="Left" Margin="76,202,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.546,-5.431"/>
+        <Button x:Name="btnAlternation" Content="Alternation Row" HorizontalAlignment="Left" Margin="127,202,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnAltcol" Content="Alternation Col" HorizontalAlignment="Left" Margin="23,239,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnbtmr" Content="Bottom Right" HorizontalAlignment="Left" Margin="27,274,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnDiagonal" Content="Diagonal Left" HorizontalAlignment="Left" Margin="127,249,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

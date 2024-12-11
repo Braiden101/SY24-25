@@ -1,4 +1,6 @@
-﻿Class MainWindow
+﻿Imports System.Reflection
+
+Class MainWindow
     Private Sub Fill1_MouseDown(sender As Object, e As MouseButtonEventArgs) Handles Fill1.MouseDown, FIll16.MouseDown, Fill3.MouseDown, Fill4.MouseDown, Fill5.MouseDown, Fill6.MouseDown, Fill7.MouseDown, Fill8.MouseDown
         Brush1.Fill = sender.Fill
     End Sub
@@ -60,6 +62,39 @@
         For row = 0 To 9
             For col = 5 To 9
                 getRect(row * 10 + col).Fill = Brush1.Fill
+            Next
+        Next
+    End Sub
+
+    Private Sub btnAlternation_Click(sender As Object, e As RoutedEventArgs) Handles btnAlternation.Click
+        For row = 0 To 9 Step 2
+            For col = 0 To 9
+                getRect(row * 10 + col).Fill = Brush1.Fill
+            Next
+        Next
+    End Sub
+
+    Private Sub btnAltcol_Click(sender As Object, e As RoutedEventArgs) Handles btnAltcol.Click
+        For col = 0 To 9 Step 2
+            For row = 0 To 9
+                getRect(row * 10 + col).Fill = Brush1.Fill
+            Next
+        Next
+    End Sub
+
+    Private Sub btnbtmr_Click(sender As Object, e As RoutedEventArgs) Handles btnbtmr.Click
+        For col = 4 To 9
+            For row = 4 To 9
+                getRect(row * 10 + col).Fill = Brush1.Fill
+            Next
+        Next
+    End Sub
+
+    Private Sub btnDiagonal_Click(sender As Object, e As RoutedEventArgs) Handles btnDiagonal.Click
+        For col = 0 To 9
+            For row = 0 To 9
+                getRect(row * 10 + col).Fill = Brush1.Fill
+
             Next
         Next
     End Sub
