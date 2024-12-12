@@ -46,7 +46,7 @@ Class MainWindow
     Private Sub btnBottom_Click(sender As Object, e As RoutedEventArgs) Handles btnBottom.Click
         For index = 49 To 99
             getRect(index).Fill = Brush1.Fill
-
+            Debug.Print(index)
         Next
     End Sub
 
@@ -91,8 +91,8 @@ Class MainWindow
     End Sub
 
     Private Sub btnDiagonal_Click(sender As Object, e As RoutedEventArgs) Handles btnDiagonal.Click
-        For col = 0 To 9
-            For row = 0 To 9
+        For row = 0 To 9
+            For col = 0 To row
                 getRect(row * 10 + col).Fill = Brush1.Fill
 
             Next
