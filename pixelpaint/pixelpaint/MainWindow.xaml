@@ -843,5 +843,6 @@
         <Button x:Name="btnAltcol" Content="Alternation Col" HorizontalAlignment="Left" Margin="23,239,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnbtmr" Content="Bottom Right" HorizontalAlignment="Left" Margin="27,274,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnDiagonal" Content="Diagonal Left" HorizontalAlignment="Left" Margin="127,249,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="Test" Content="Button" HorizontalAlignment="Left" Margin="92,344,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

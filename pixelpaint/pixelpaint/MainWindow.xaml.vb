@@ -1,4 +1,5 @@
 ﻿Imports System.Reflection
+Imports System.Runtime.InteropServices.ComTypes
 
 Class MainWindow
     Private Sub Fill1_MouseDown(sender As Object, e As MouseButtonEventArgs) Handles Fill1.MouseDown, FIll16.MouseDown, Fill3.MouseDown, Fill4.MouseDown, Fill5.MouseDown, Fill6.MouseDown, Fill7.MouseDown, Fill8.MouseDown
@@ -96,6 +97,12 @@ Class MainWindow
                 getRect(row * 10 + col).Fill = Brush1.Fill
 
             Next
+        Next
+    End Sub
+
+    Private Sub Test_Click(sender As Object, e As RoutedEventArgs) Handles Test.Click
+        For index = 1 To 10
+
         Next
     End Sub
 End Class
